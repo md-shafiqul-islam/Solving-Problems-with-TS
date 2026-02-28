@@ -1,3 +1,5 @@
+# Interview Questions - TypeScript
+
 ## 1. What are some differences between interfaces and types in TypeScript?
 - Typescript-এ আমরা অবজেক্টের টাইপ ডিফাইন করতে type-alias বা interface ব্যাবহার করি। কিন্তু এদের মধ্যে কিছু গুরুত্বপূর্ণ পার্থক্য আছে:
 
@@ -13,7 +15,7 @@
 
 ## 2. What is the use of the keyof keyword in TypeScript?
 - keyof ব্যবহার করা হয় কোন অবজেক্ট টাইপের সমস্ত key-গুলোকে type হিসেবে বের করতে।
-উদাহরণ:
+- Example:
 ```ts
 type Person = {
   name: string;
@@ -30,7 +32,7 @@ const key3: PersonKeys = "gender"; // Wrong
 
 ### ব্যবহারিক সুবিধা:
 - keyof দিয়ে আমরা type-safe ভাবে অবজেক্টের key নির্বাচন বা dynamic access করতে পারি।
-উদাহরণ:
+- Example:
 ```ts
 function getProperty<T, K extends keyof T>(obj: T, key: K) {
   return obj[key];
@@ -57,7 +59,7 @@ const personName = getProperty(person, "name"); // type: string
 - enum ব্যবহার করা হয় সংজ্ঞায়িত সেটের নাম/সংখ্যা assign করতে।
 
 ### i) Numeric enum
-উদাহরণ:
+Example:
 ```ts
 enum Direction {
   Up = 1,
@@ -70,7 +72,7 @@ console.log(Direction.Up);    // 1
 console.log(Direction.Right); // 4 (automatically incremented)
 ```
 ### ii) String enum
-উদাহরণ:
+Example:
 ```ts
 enum Color {
   Red = "RED",
@@ -87,7 +89,7 @@ console.log(Color.Green); // "GREEN"
 ## 5. Provide an example of using union and intersection types in TypeScript.
 ### i) Union type ( | )
 - Union type মানে একাধিক টাইপের যেকোনো একটি হতে পারে।
-উদাহরণ:
+- Example:
 ```ts
 type ID = string | number;
 
@@ -97,7 +99,7 @@ userId = 456;
 ```
 ### ii) Intersection type ( & )
 - Intersection type মানে সব টাইপের combined property থাকতে হবে।
-উদাহরণ:
+- Example:
 ```ts
 type Person = { name: string };
 type Employee = { employeeId: number };
