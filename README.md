@@ -13,8 +13,8 @@
 
 ## 2. What is the use of the keyof keyword in TypeScript?
 - keyof ব্যবহার করা হয় কোন অবজেক্ট টাইপের সমস্ত key-গুলোকে type হিসেবে বের করতে।
-```ts
 উদাহরণ:
+```ts
 type Person = {
   name: string;
   age: number;
@@ -30,8 +30,8 @@ const key3: PersonKeys = "gender"; // Wrong
 
 ### ব্যবহারিক সুবিধা:
 - keyof দিয়ে আমরা type-safe ভাবে অবজেক্টের key নির্বাচন বা dynamic access করতে পারি।
-```ts
 উদাহরণ:
+```ts
 function getProperty<T, K extends keyof T>(obj: T, key: K) {
   return obj[key];
 }
@@ -57,8 +57,8 @@ const personName = getProperty(person, "name"); // type: string
 - enum ব্যবহার করা হয় সংজ্ঞায়িত সেটের নাম/সংখ্যা assign করতে।
 
 ### i) Numeric enum
-```ts
 উদাহরণ:
+```ts
 enum Direction {
   Up = 1,
   Down,
@@ -70,8 +70,8 @@ console.log(Direction.Up);    // 1
 console.log(Direction.Right); // 4 (automatically incremented)
 ```
 ### ii) String enum
-```ts
 উদাহরণ:
+```ts
 enum Color {
   Red = "RED",
   Green = "GREEN",
@@ -87,8 +87,8 @@ console.log(Color.Green); // "GREEN"
 ## 5. Provide an example of using union and intersection types in TypeScript.
 ### i) Union type ( | )
 - Union type মানে একাধিক টাইপের যেকোনো একটি হতে পারে।
-```ts
 উদাহরণ:
+```ts
 type ID = string | number;
 
 let userId: ID;
@@ -97,8 +97,8 @@ userId = 456;
 ```
 ### ii) Intersection type ( & )
 - Intersection type মানে সব টাইপের combined property থাকতে হবে।
-```ts
 উদাহরণ:
+```ts
 type Person = { name: string };
 type Employee = { employeeId: number };
 
