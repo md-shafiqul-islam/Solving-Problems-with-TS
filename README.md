@@ -13,7 +13,7 @@
 
 ## 2. What is the use of the keyof keyword in TypeScript?
 - keyof ব্যবহার করা হয় কোন অবজেক্ট টাইপের সমস্ত key-গুলোকে type হিসেবে বের করতে।
-
+```ts
 উদাহরণ:
 type Person = {
   name: string;
@@ -26,11 +26,11 @@ type PersonKeys = keyof Person;
 const key1: PersonKeys = "name"; // Right
 const key2: PersonKeys = "age"; // Right
 const key3: PersonKeys = "gender"; // Wrong
-
+```
 
 ### ব্যবহারিক সুবিধা:
 - keyof দিয়ে আমরা type-safe ভাবে অবজেক্টের key নির্বাচন বা dynamic access করতে পারি।
-
+```ts
 উদাহরণ:
 function getProperty<T, K extends keyof T>(obj: T, key: K) {
   return obj[key];
@@ -38,7 +38,7 @@ function getProperty<T, K extends keyof T>(obj: T, key: K) {
 
 const person: Person = { name: "Rafiq", age: 25 };
 const personName = getProperty(person, "name"); // type: string
-
+```
 ## 3. Explain the difference between any, unknown, and never types in TypeScript.
 ### i) any
 - any হল “আমি টাইপ জানি না, TypeScript কে কিছু বলার দরকার নেই” টাইপ।
@@ -57,6 +57,7 @@ const personName = getProperty(person, "name"); // type: string
 - enum ব্যবহার করা হয় সংজ্ঞায়িত সেটের নাম/সংখ্যা assign করতে।
 
 ### i) Numeric enum
+```ts
 উদাহরণ:
 enum Direction {
   Up = 1,
@@ -67,8 +68,9 @@ enum Direction {
 
 console.log(Direction.Up);    // 1
 console.log(Direction.Right); // 4 (automatically incremented)
-
+```
 ### ii) String enum
+```ts
 উদাহরণ:
 enum Color {
   Red = "RED",
@@ -78,24 +80,24 @@ enum Color {
 
 console.log(Color.Red);   // "RED"
 console.log(Color.Green); // "GREEN"
-
+```
 - Numeric enums auto increment করে, string enums explicit assign করা লাগে।
 - Enums type-safe constant values দেয়।
 
 ## 5. Provide an example of using union and intersection types in TypeScript.
 ### i) Union type ( | )
 - Union type মানে একাধিক টাইপের যেকোনো একটি হতে পারে।
-
+```ts
 উদাহরণ:
 type ID = string | number;
 
 let userId: ID;
 userId = "abc123";
 userId = 456;
-
+```
 ### ii) Intersection type ( & )
 - Intersection type মানে সব টাইপের combined property থাকতে হবে।
-
+```ts
 উদাহরণ:
 type Person = { name: string };
 type Employee = { employeeId: number };
@@ -106,3 +108,4 @@ const staff1: Staff = {
   name: "Rafiq",
   employeeId: 101
 }; // must have both name and employeeId
+```
